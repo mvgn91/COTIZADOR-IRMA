@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no, user-scalable=no, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Cotizador SSA">
+    <meta name="format-detection" content="telephone=no">
+    
+    <title>Cotizador de Señalética</title>
+    
+    <!-- Dependencias -->
+    <script src="https://cdn.tailwindcss.com"></script>
+<<<<<<< HEAD
+=======
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+    
+    <!-- Configuración de Tailwind -->
+>>>>>>> 810f9e60cde086dc8cd8f1c8aefce0becf0de54a
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'system': ['-apple-system', 'BlinkMacSystemFont', 'SF Pro Display', 'system-ui'],
+                        'display': ['-apple-system', 'BlinkMacSystemFont', 'SF Pro Display', 'system-ui'],
+                        'body': ['-apple-system', 'BlinkMacSystemFont', 'SF Pro Text', 'system-ui'],
+                    },
+                    colors: {
+                        'primary': '#1A3B9F',
+                        'primary-light': '#2A5BBF',
+                        'primary-dark': '#0E2A84',
+                        'surface': '#ffffff',
+                        'surface-secondary': '#f8fafc',
+                        'surface-tertiary': '#f1f5f9',
+                        'text-primary': '#1f2937',
+                        'text-secondary': '#6b7280',
+                        'text-tertiary': '#9ca3af',
+                        'success': '#10b981',
+                        'warning': '#f59e0b',
+                        'error': '#ef4444',
+                    },
+                    borderRadius: {
+                        'xs': '4px',
+                        'sm': '6px',
+                        'md': '8px',
+                        'lg': '12px',
+                    },
+                    boxShadow: {
+                        'apple-sm': '0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)',
+                        'apple-md': '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="safe-area-inset">
+    <div class="min-h-screen py-4 px-4 sm:py-8 sm:px-6 relative z-10">
+        <div class="max-w-4xl mx-auto">
+<<<<<<< HEAD
+            <div class="w-full max-h-32 mb-6 overflow-hidden rounded-lg shadow-md">
+                <!-- Ruta actualizada para el banner del cliente -->
+                <img src="/assets/banner.png" 
+                     alt="Banner de tu empresa" 
+                     class="w-full h-auto object-cover mx-auto">
+            </div>
+
+=======
+            <!-- Header -->
+>>>>>>> 810f9e60cde086dc8cd8f1c8aefce0becf0de54a
+            <header class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-8 fade-in-up">
+                <div class="flex items-center text-left mb-4 sm:mb-0">
+                    <div class="w-1 h-16 bg-primary rounded-full mr-4"></div>
+                    <div>
+                        <h1 class="text-3xl sm:text-4xl font-bold text-primary mb-1 tracking-tight font-display">
+                            COTIZADOR DE SEÑALÉTICA
+                        </h1>
+                        <div id="connectionStatus" class="online-status-indicator">
+                            <svg class="icon" viewBox="0 0 24 24">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8.59 10 17z"/>
+                            </svg>
+                            <span>v5.9 Online</span>
+                        </div>
+                        <p class="text-base text-text-secondary font-body mt-1">
+                            <span class="font-semibold text-primary">Corporativo Innovar</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="flex items-center justify-center h-28 w-full sm:w-64">
+<<<<<<< HEAD
+                    <!-- Ruta actualizada para el logo SSA -->
+                    <img src="/assets/logo ssa.png" 
+=======
+                    <img id="logoImage" 
+                         src="assets/logo ssa.png"
+>>>>>>> 810f9e60cde086dc8cd8f1c8aefce0becf0de54a
+                         alt="Logo SSA" 
+                         class="max-h-full max-w-full object-contain rounded-lg shadow-apple-md">
+                </div>
+            </header>
+
+<<<<<<< HEAD
+=======
+            <!-- Selector de Tipo de Documento -->
+            <section class="material-card p-6 mb-6 fade-in-up" style="animation-delay: 0.05s">
+                <div class="flex items-center mb-6">
+                    <div class="w-1 h-8 bg-primary rounded-full mr-4"></div>
+                    <h2 class="text-xl font-semibold text-text-primary font-display">
+                        Tipo de Documento
+                    </h2>
+                </div>
+                
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <div class="flex-1">
+                        <label for="documentType" class="label-text">Seleccionar Tipo</label>
+                        <select id="documentType" class="input-field w-full focus-visible text-lg font-medium">
+                            <option value="cotizacion">COTIZACIÓN</option>
+                            <option value="orden_produccion">ORDEN DE PRODUCCIÓN</option>
+                        </select>
+                    </div>
+                    <div class="flex items-center justify-center">
+                        <div id="documentTypeIndicator" class="px-4 py-2 rounded-lg font-semibold text-white transition-all duration-300 flex items-center gap-2 select-none cursor-default" style="pointer-events: none;">
+                            <i id="documentTypeIcon" class='bx bx-file-doc text-xl'></i>
+                            <span id="documentTypeText">COTIZACIÓN</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Datos del Cliente -->
+>>>>>>> 810f9e60cde086dc8cd8f1c8aefce0becf0de54a
+            <section class="material-card p-6 mb-6 fade-in-up" style="animation-delay: 0.1s">
+                <div class="flex items-center mb-6">
+                    <div class="w-1 h-8 bg-primary rounded-full mr-4"></div>
+                    <h2 class="text-xl font-semibold text-text-primary font-display">
+                        Datos del Cliente
+                    </h2>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label for="clientName" class="label-text">Cliente</label>
+                        <input type="text" id="clientName" class="input-field w-full focus-visible" 
+                               placeholder="Nombre del Cliente" autocomplete="organization">
+                    </div>
+                    <div>
+                        <label for="purchaseOrder" class="label-text">Orden de Compra (OC)</label>
+                        <input type="text" id="purchaseOrder" class="input-field w-full focus-visible" 
+                               placeholder="No. de Orden de Compra">
+                    </div>
+                    <div>
+                        <label for="issueDate" class="label-text">Fecha de Emisión</label>
+                        <input type="date" id="issueDate" class="input-field w-full focus-visible">
+                    </div>
+                    <div>
+                        <label for="deliveryDate" class="label-text">Fecha Compromiso de Entrega</label>
+                        <input type="date" id="deliveryDate" class="input-field w-full focus-visible">
+                    </div>
+                    <div>
+                        <label for="requestedBy" class="label-text">Solicitado por</label>
+                        <input type="text" id="requestedBy" class="input-field w-full focus-visible" 
+                               placeholder="Nombre del solicitante">
+                    </div>
+                    <div>
+                        <label for="clientPosition" class="label-text">Cargo del Cliente</label>
+                        <input type="text" id="clientPosition" class="input-field w-full focus-visible" 
+                               placeholder="Cargo o puesto">
+                    </div>
+                    <div class="md:col-span-2">
+                        <label for="cultivo" class="label-text">Cultivo</label>
+                        <input type="text" id="cultivo" class="input-field w-full focus-visible" 
+                               placeholder="Tipo de cultivo">
+                    </div>
+                </div>
+            </section>
+
+            <!-- Productos -->
+            <section class="material-card p-6 mb-6 fade-in-up" style="animation-delay: 0.15s">
+                <div class="flex items-center justify-between mb-6">
+                    <div class="flex items-center">
+                        <div class="w-1 h-8 bg-primary rounded-full mr-4"></div>
+                        <h2 class="text-xl font-semibold text-text-primary font-display">
+                            Productos
+                        </h2>
+                    </div>
+<<<<<<< HEAD
+                    <button id="addProductBtn" class="btn-primary flex items-center justify-center gap-2 px-4 py-2 text-sm md:text-base focus-visible">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="12" y1="5" x2="12" y2="19"></line>
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                        </svg>
+                        Agregar Producto
+=======
+                    <button id="addProductBtn" class="btn-primary flex items-center gap-2">
+                        <i class='bx bx-plus text-xl'></i>
+                        <span>Agregar Producto</span>
+>>>>>>> 810f9e60cde086dc8cd8f1c8aefce0becf0de54a
+                    </button>
+                </div>
+                
+                <div class="responsive-table">
+                    <table class="w-full">
+                        <thead>
+                            <tr class="bg-surface-secondary">
+                                <th class="text-left p-4 font-semibold text-text-primary">Descripción</th>
+                                <th class="text-left p-4 font-semibold text-text-primary">Cantidad</th>
+                                <th class="text-left p-4 font-semibold text-text-primary">Precio Unitario</th>
+                                <th class="text-left p-4 font-semibold text-text-primary">Subtotal</th>
+                                <th class="text-left p-4 font-semibold text-text-primary">Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody id="productsBody">
+                            <!-- Los productos se agregarán dinámicamente aquí -->
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="mt-4 text-right">
+                    <p class="text-lg font-semibold text-text-primary">
+                        Subtotal: <span id="subtotal" class="text-primary">$0.00</span>
+                    </p>
+                </div>
+            </section>
+
+            <!-- Configuración de Pagos -->
+            <section class="material-card p-6 mb-6 fade-in-up" style="animation-delay: 0.2s">
+                <div class="flex items-center mb-6">
+                    <div class="w-1 h-8 bg-primary rounded-full mr-4"></div>
+                    <h2 class="text-xl font-semibold text-text-primary font-display">
+                        Configuración de Pagos
+                    </h2>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label for="paymentType" class="label-text">Tipo de Pago</label>
+                        <select id="paymentType" class="input-field w-full focus-visible">
+                            <option value="anticipo_liquidacion">Anticipo + Liquidación</option>
+                            <option value="contado">Contado</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="anticipoPercentage" class="label-text">Porcentaje de Anticipo (%)</label>
+                        <input type="number" id="anticipoPercentage" class="input-field w-full focus-visible" 
+                               value="50" min="0" max="100">
+                    </div>
+                </div>
+                
+                <div id="paymentCalculations" class="mt-4 p-4 bg-surface-secondary rounded-lg">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div>
+                            <p class="text-sm text-text-secondary">Anticipo</p>
+                            <p class="text-lg font-semibold text-primary" id="anticipoAmount">$0.00</p>
+                        </div>
+                        <div>
+                            <p class="text-sm text-text-secondary">Liquidación</p>
+                            <p class="text-lg font-semibold text-primary" id="liquidacionAmount">$0.00</p>
+                        </div>
+                        <div>
+                            <p class="text-sm text-text-secondary">Total</p>
+                            <p class="text-lg font-semibold text-primary" id="totalAmount">$0.00</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Servicios Adicionales -->
+            <section class="material-card p-6 mb-6 fade-in-up" style="animation-delay: 0.25s">
+                <div class="flex items-center mb-6">
+                    <div class="w-1 h-8 bg-primary rounded-full mr-4"></div>
+                    <h2 class="text-xl font-semibold text-text-primary font-display">
+                        Servicios Adicionales
+                    </h2>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label for="deliveryType" class="label-text">Tipo de Entrega</label>
+                        <select id="deliveryType" class="input-field w-full focus-visible">
+                            <option value="sin_instalacion">Sin Instalación</option>
+                            <option value="con_instalacion">Con Instalación</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="installationCost" class="label-text">Costo de Instalación</label>
+                        <input type="number" id="installationCost" class="input-field w-full focus-visible" 
+                               value="0" min="0" step="0.01">
+                    </div>
+                    <div class="flex items-center">
+                        <label class="apple-switch">
+                            <input type="checkbox" id="deliveryServiceToggle">
+                            <span class="apple-slider"></span>
+                        </label>
+                        <span class="ml-3 text-text-primary font-medium">Servicio de Entrega</span>
+                    </div>
+                    <div id="deliveryFields" class="hidden">
+                        <label for="deliveryAddress" class="label-text">Dirección de Entrega</label>
+                        <input type="text" id="deliveryAddress" class="input-field w-full focus-visible" 
+                               placeholder="Dirección completa">
+                    </div>
+                    <div id="deliveryCostField" class="hidden">
+                        <label for="deliveryCost" class="label-text">Costo de Entrega</label>
+                        <input type="number" id="deliveryCost" class="input-field w-full focus-visible" 
+                               value="0" min="0" step="0.01">
+                    </div>
+                </div>
+            </section>
+
+            <!-- Campos de Texto -->
+            <section class="material-card p-6 mb-6 fade-in-up" style="animation-delay: 0.3s">
+                <div class="flex items-center mb-6">
+                    <div class="w-1 h-8 bg-primary rounded-full mr-4"></div>
+                    <h2 class="text-xl font-semibold text-text-primary font-display">
+                        Información Adicional
+                    </h2>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label for="observationsText" class="label-text">Observaciones</label>
+                        <textarea id="observationsText" class="input-field w-full focus-visible" 
+                                  rows="4" placeholder="Observaciones adicionales"></textarea>
+                    </div>
+                    <div>
+                        <label for="clausesText" class="label-text">Cláusulas y Condiciones</label>
+                        <textarea id="clausesText" class="input-field w-full focus-visible" 
+                                  rows="4" placeholder="Cláusulas y condiciones"></textarea>
+                    </div>
+                </div>
+                
+                <div class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="flex items-center">
+                        <label class="apple-switch">
+                            <input type="checkbox" id="ivaToggleCheckbox" checked>
+                            <span class="apple-slider"></span>
+                        </label>
+                        <span class="ml-3 text-text-primary font-medium">Incluir IVA</span>
+                    </div>
+                    <div>
+                        <label for="ivaPercentage" class="label-text">Porcentaje de IVA (%)</label>
+                        <input type="number" id="ivaPercentage" class="input-field w-full focus-visible" 
+                               value="16" min="0" max="100">
+                    </div>
+                </div>
+            </section>
+
+            <!-- Totales -->
+            <section class="material-card p-6 mb-6 fade-in-up" style="animation-delay: 0.35s">
+                <div class="flex items-center mb-6">
+                    <div class="w-1 h-8 bg-primary rounded-full mr-4"></div>
+                    <h2 class="text-xl font-semibold text-text-primary font-display">
+                        Totales
+                    </h2>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="space-y-4">
+                        <div class="flex justify-between">
+                            <span class="text-text-secondary">Subtotal:</span>
+                            <span id="subtotalDisplay" class="font-semibold">$0.00</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-text-secondary">IVA (16%):</span>
+                            <span id="ivaDisplay" class="font-semibold">$0.00</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-text-secondary">Instalación:</span>
+                            <span id="installationDisplay" class="font-semibold">$0.00</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-text-secondary">Entrega:</span>
+                            <span id="deliveryDisplay" class="font-semibold">$0.00</span>
+                        </div>
+                    </div>
+                    <div class="text-right">
+                        <div class="text-2xl font-bold text-primary" id="totalDisplay">
+                            Total: $0.00
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+<<<<<<< HEAD
+            <section class="fade-in-up" style="animation-delay: 0.7s">
+                <div class="flex flex-col sm:flex-row justify-center gap-4 mb-6">
+                    <button id="generatePdfBtn" class="btn-primary flex-1 focus-visible">
+                        <span class="flex items-center justify-center gap-2">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                <polyline points="14,2 14,8 20,8"></polyline>
+                                <line x1="16" y1="13" x2="8" y2="13"></line>
+                                <line x1="16" y1="17" x2="8" y2="17"></line>
+                                <polyline points="10,9 9,9 8,9"></polyline>
+                            </svg>
+                            Cotización
+                        </span>
+                    </button>
+                    
+                    <button id="generateProductionOrderBtn" class="btn-primary flex-1 focus-visible">
+                        <span class="flex items-center justify-center gap-2">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                <polyline points="14,2 14,8 20,8"></polyline>
+                                <line x1="16" y1="13" x2="8" y2="13"></line>
+                                <line x1="16" y1="17" x2="8" y2="17"></line>
+                                <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+                                <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+                            </svg>
+                            Orden de Producción
+                        </span>
+                    </button>
+
+                    <button id="saveQuoteBtn" class="btn-primary flex-1 focus-visible">
+                        <span class="flex items-center justify-center gap-2">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path>
+                                <polyline points="17,21 17,13 7,13 7,21"></polyline>
+                                <polyline points="7,3 7,8 15,8"></polyline>
+                            </svg>
+                            Guardar
+                        </span>
+                    </button>
+                    
+                    <button id="loadQuoteBtn" class="btn-primary flex-1 focus-visible">
+                        <span class="flex items-center justify-center gap-2">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"></path>
+                            </svg>
+                            Cargar
+                        </span>
+                    </button>
+                </div>
+                <div class="flex flex-col sm:flex-row justify-center gap-4 mt-4">
+                     <button id="logoutBtn" class="btn-secondary flex-1 focus-visible">
+                        <span class="flex items-center justify-center gap-2">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                                <polyline points="17 16 22 12 17 8"></polyline>
+                                <line x1="22" y1="12" x2="10" y2="12"></line>
+                            </svg>
+                            Cerrar Sesión
+                        </span>
+                    </button>
+                </div>
+            </section>
+
+            <div id="messageBox" class="hidden fixed bottom-4 right-4 p-4 rounded-lg shadow-apple-lg z-50 max-w-sm">
+                <p id="messageText" class="text-sm font-medium"></p>
+            </div>
+
+            <div id="userIdDisplaySection" class="hidden">
+                <span id="currentUserId">loading...</span>
+            </div>
+
+            <div class="text-center mt-8 mb-4 text-xs text-gray-500 opacity-70 flex items-center justify-center gap-2">
+                <!-- Ruta actualizada para el logo MVGN -->
+                <img src="/assets/mvgn icon.png" alt="MVGN Logo" class="h-5 w-5 rounded-full">
+                <span>Powered by MVGN Labs 2025</span>
+            </div>
+=======
+            <!-- Botones de Acción -->
+            <section class="material-card p-6 mb-6 fade-in-up" style="animation-delay: 0.4s">
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <button id="saveDocumentBtn" class="btn-primary flex-1 flex items-center justify-center gap-2">
+                        <i class='bx bx-save text-xl'></i>
+                        <span id="saveButtonText">Guardar Cotización</span>
+                    </button>
+                    <button id="incomeReportBtn" class="btn-secondary flex-1 flex items-center justify-center gap-2">
+                        <i class='bx bx-download text-xl'></i>
+                        <span>Reporte de Ingresos</span>
+                    </button>
+                </div>
+                <!-- Botones de prueba temporal -->
+                <div class="mt-4 text-center space-x-2">
+                    <button onclick="testApp()" class="btn-secondary px-4 py-2 text-sm">
+                        <i class='bx bx-test-tube mr-2'></i>
+                        Probar Aplicación
+                    </button>
+                    <button onclick="checkElements()" class="btn-secondary px-4 py-2 text-sm">
+                        <i class='bx bx-search mr-2'></i>
+                        Verificar Elementos
+                    </button>
+                </div>
+            </section>
+>>>>>>> 810f9e60cde086dc8cd8f1c8aefce0becf0de54a
+        </div>
+    </div>
+
+    <!-- Modal de Producto -->
+    <div id="productModal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalTitle" class="text-xl font-semibold text-text-primary">Agregar Producto</h3>
+                <button class="close-button" onclick="closeProductModal()">
+                    <i class='bx bx-x text-2xl'></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="space-y-4">
+                    <div>
+                        <label for="productDescription" class="label-text">Descripción</label>
+                        <input type="text" id="productDescription" class="input-field w-full focus-visible" 
+                               placeholder="Descripción del producto">
+                    </div>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <label for="productQuantity" class="label-text">Cantidad</label>
+                            <input type="number" id="productQuantity" class="input-field w-full focus-visible" 
+                                   value="1" min="1" step="1">
+                        </div>
+                        <div>
+                            <label for="productUnitPrice" class="label-text">Precio Unitario</label>
+                            <input type="number" id="productUnitPrice" class="input-field w-full focus-visible" 
+                                   value="0" min="0" step="0.01">
+                        </div>
+                    </div>
+                    <div>
+                        <label for="productSubtotal" class="label-text">Subtotal</label>
+                        <input type="number" id="productSubtotal" class="input-field w-full focus-visible" 
+                               value="0" min="0" step="0.01" readonly>
+                    </div>
+                </div>
+<<<<<<< HEAD
+
+                <div class="search-container">
+                    <div class="relative">
+                        <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <path d="m21 21-4.35-4.35"></path>
+                        </svg>
+                        <input type="text" id="searchQuotes" class="search-input" placeholder="Buscar por cliente, fecha o monto...">
+                    </div>
+                </div>
+
+                <div class="filter-container">
+                    <button class="filter-button active" data-filter="all">Todas</button>
+                    <button class="filter-button" data-filter="recent">Recientes</button>
+                    <button class="filter-button" data-filter="high-value">Alto Valor</button>
+                    <button class="filter-button" data-filter="this-month">Este Mes</button>
+                </div>
+
+                <div id="quoteListContent">
+                    <div class="flex items-center justify-center py-8">
+                        <div class="loading-spinner"></div>
+                        <span class="ml-2 text-text-secondary">Cargando cotizaciones...</span>
+                    </div>
+                </div>
+                
+                <div id="noQuotesMessage" class="hidden text-center py-8 text-text-secondary">
+                    <svg class="mx-auto mb-4 w-16 h-16 text-text-tertiary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                    </svg>
+                    <p class="text-lg font-medium">No hay cotizaciones guardadas</p>
+                    <p class="text-sm">Crea tu primera cotización para comenzar</p>
+                </div>
+=======
+            </div>
+            <div class="flex gap-4 mt-6">
+                <button id="saveProductBtn" class="btn-primary flex-1">
+                    <i class='bx bx-save mr-2'></i>
+                    Guardar Producto
+                </button>
+                <button onclick="closeProductModal()" class="btn-secondary flex-1">
+                    Cancelar
+                </button>
+>>>>>>> 810f9e60cde086dc8cd8f1c8aefce0becf0de54a
+            </div>
+        </div>
+    </div>
+
+    <!-- Indicador de Autoguardado -->
+    <div id="autoSaveIndicator" class="fixed bottom-4 right-4 bg-success text-white px-4 py-2 rounded-lg shadow-lg transform translate-y-full transition-transform duration-300">
+        <i class='bx bx-check mr-2'></i>
+        <span>Autoguardado</span>
+    </div>
+
+    <!-- Sistema de Notificaciones -->
+    <div id="notificationContainer" class="fixed top-4 right-4 z-50"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
